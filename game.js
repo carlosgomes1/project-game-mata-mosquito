@@ -72,7 +72,22 @@ function ladoAleatorio() {
 }
 
 function criarElemento() {
-    setInterval(gerarMosquitoRandom, 2000)
+    setInterval(gerarMosquitoRandom, 1000)
 }
+
+var cronometroN = 60
+
+function cronometro() {
+    setInterval( function() {
+        document.getElementById('cronometro').innerHTML = cronometroN
+        cronometroN--
+
+        if( cronometroN === 0 ) {
+            window.location.href = 'victory.html'
+        }
+    }, 1000)
+}
+
+cronometro()
 
 criarElemento()
