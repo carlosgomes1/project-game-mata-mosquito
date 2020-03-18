@@ -8,11 +8,19 @@ function ajustarTamanhoJogo() {
 
 ajustarTamanhoJogo()
 
+var life = 3
+
 function gerarMosquitoRandom() {
 
     // Remover mosquito anterior
     if( document.getElementById('mosquito') ) {
         document.getElementById('mosquito').remove()
+        document.getElementById('vida' + life).src = 'imagens/coracao_vazio.png'
+        life--
+
+        if( life === 0 ) {
+            window.location.href = 'game-over.html'
+        }
     }
 
     // Gerando posição aleatória para a mosca
@@ -34,6 +42,9 @@ function gerarMosquitoRandom() {
     mosquito.style.top = posY + 'px'
     mosquito.style.left = posX + 'px'
     mosquito.id = 'mosquito'
+    mosquito.onclick = function() {
+        this.remove()
+    }
 
     document.body.appendChild(mosquito)
 }
@@ -61,7 +72,7 @@ function ladoAleatorio() {
 }
 
 function criarElemento() {
-    setInterval(gerarMosquitoRandom, 1000)
+    setInterval(gerarMosquitoRandom, 2000)
 }
 
 criarElemento()
