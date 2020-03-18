@@ -24,7 +24,7 @@ function gerarMosquitoRandom() {
 
     var mosquito = document.createElement('img')
     mosquito.src = 'imagens/mosca.png'
-    mosquito.className = 'mosquito1'
+    mosquito.className = tamanhoAleatorio()
     mosquito.style.position = 'absolute'
     mosquito.style.top = posY + 'px'
     mosquito.style.left = posX + 'px'
@@ -33,3 +33,15 @@ function gerarMosquitoRandom() {
 }
 
 gerarMosquitoRandom()
+
+function tamanhoAleatorio() {
+    var classe = Math.floor(Math.random() * 3)
+    switch(classe) {
+        case 0:
+            return 'mosquito0'
+        case 1:
+            return 'mosquito1'
+        case 2:
+            return 'mosquito2'
+    }
+}
