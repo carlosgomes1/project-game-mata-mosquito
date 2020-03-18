@@ -49,6 +49,8 @@ function gerarMosquitoRandom() {
     document.body.appendChild(mosquito)
 }
 
+// Tamanhos aleatórios do mosquito
+
 function tamanhoAleatorio() {
     var classe = Math.floor(Math.random() * 3)
     switch(classe) {
@@ -61,6 +63,8 @@ function tamanhoAleatorio() {
     }
 }
 
+// Girando o rosto do mosquito
+
 function ladoAleatorio() {
     var classe = Math.floor(Math.random() * 2)
     switch(classe) {
@@ -71,9 +75,15 @@ function ladoAleatorio() {
     }
 }
 
+// Criando mosquito a cada 1 segundo
+
 function criarElemento() {
     setInterval(gerarMosquitoRandom, 1000)
 }
+
+criarElemento()
+
+// Cronometro
 
 var cronometroN = 60
 
@@ -89,5 +99,3 @@ function cronometro() {
 }
 
 cronometro()
-
-criarElemento()
