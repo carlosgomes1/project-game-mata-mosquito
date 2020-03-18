@@ -10,6 +10,11 @@ ajustarTamanhoJogo()
 
 function gerarMosquitoRandom() {
 
+    // Remover mosquito anterior
+    if( document.getElementById('mosquito') ) {
+        document.getElementById('mosquito').remove()
+    }
+
     // Gerando posição aleatória para a mosca
     var random1 = Math.random()
     var random2 = Math.random()
@@ -28,11 +33,10 @@ function gerarMosquitoRandom() {
     mosquito.style.position = 'absolute'
     mosquito.style.top = posY + 'px'
     mosquito.style.left = posX + 'px'
+    mosquito.id = 'mosquito'
 
     document.body.appendChild(mosquito)
 }
-
-gerarMosquitoRandom()
 
 function tamanhoAleatorio() {
     var classe = Math.floor(Math.random() * 3)
@@ -55,3 +59,9 @@ function ladoAleatorio() {
             return 'ladoB'
     }
 }
+
+function criarElemento() {
+    setInterval(gerarMosquitoRandom, 1000)
+}
+
+criarElemento()
