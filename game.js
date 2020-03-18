@@ -8,6 +8,24 @@ function ajustarTamanhoJogo() {
 
 ajustarTamanhoJogo()
 
+// dificuldade
+
+
+
+var nivel = window.location.search
+nivel = nivel.replace('?', '')
+
+var tempo = 1500
+
+if( nivel === 'normal' ) {
+    tempo = 1500
+} else if( nivel === 'dificil' ) {
+    tempo = 1000
+} else if( nivel === 'estrela' ) {
+    tempo = 750
+}
+
+
 var life = 3
 
 function gerarMosquitoRandom() {
@@ -78,7 +96,7 @@ function ladoAleatorio() {
 // Criando mosquito a cada 1 segundo
 
 function criarElemento() {
-    setInterval(gerarMosquitoRandom, 1000)
+    setInterval(gerarMosquitoRandom, tempo)
 }
 
 criarElemento()
@@ -99,3 +117,4 @@ function cronometro() {
 }
 
 cronometro()
+
